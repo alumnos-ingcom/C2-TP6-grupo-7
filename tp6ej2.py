@@ -1,13 +1,14 @@
 ################
 # Martín Carosanti - Hernan Palumbo
-#Anagrama
+# Anagrama II
 # UNRN Andina - Introducción a la Ingenieria en Computación
 ################
-
-"""Implementar una funcion que determine si dos cadenas son anagramas entre si, ignorando espacios
-y diferencias entre mayusculas y minusculas. (En el repositorio hay un archivo con ejemplos)"""
+"""Procesar el archivo de anagramas y verificar si todos los de la lista son anagramas. 
+Solo es necesario indicar las palabras de cada linea son anagramas entre si.
+Envien las palabras evaluadas y si son o no anagramas entre si por consola."""
 
 def estandarizar_palabras(palabra):
+    """Convertimos primero ambas palabras en las listas a minúsculas, ignorando espacios y acentos"""
     replace = {'á': 'a', 'é':'e', 'í':'i', 'ó':'o', 'ú': 'u', ' ': '', ',' : '', '.': ''}
     palabra.lower
     for caracter in replace.keys():
@@ -19,7 +20,6 @@ def separador_palabras(linea, separador= '–'):
     return palabras
 
 def anagrama(palabra1, palabra2):
-    """Convertimos primero ambas listas a minúsculas, ignorando espacios y acentos"""
     palabra1 = estandarizar_palabras(palabra1)
     palabra2 = estandarizar_palabras(palabra2)
    
@@ -29,10 +29,10 @@ def anagrama(palabra1, palabra2):
     palabra1_arreglo.sort()
     palabra2_arreglo.sort()
     
-    """Convertimos de vuelta a cadena ua vez ordenadas"""
+    """Convertimos de vuelta a cadena una vez ordenadas"""
     palabra1_ordenada = "".join(palabra1_arreglo)
     palabra2_ordenada = "".join(palabra2_arreglo)
-    """Comprobamos la igualdas de las palabras"""
+    """Comprobamos la igualdad de las palabras"""
     return palabra1_ordenada == palabra2_ordenada
 
 def buscar_anagramas_archivo(ruta_archivo):
