@@ -40,11 +40,10 @@ def buscar_anagramas_archivo(ruta_archivo):
         anagramas = []
         for linea in f.readlines():
             palabras = separador_palabras(linea)
-            palabras_a_estandarizar = palabras.copy()
-            for palabra in palabras_a_estandarizar:
-                palabras_a_estandarizar[palabras_a_estandarizar.index(palabra)] = estandarizar_palabras(palabra)
+            for palabra in palabras:
+                palabras[palabras.index(palabra)] = estandarizar_palabras(palabra)
             if len(palabras)>1:
-                es_anagrama = anagrama(palabras_a_estandarizar[0], palabras_a_estandarizar[1])
+                es_anagrama = anagrama(palabras[0], palabras[1])
                 palabras.append(es_anagrama)
                 anagramas.append(palabras)
     return anagramas
@@ -52,7 +51,7 @@ def buscar_anagramas_archivo(ruta_archivo):
 def principal():
     """Toda la interacción con el usuario va acá"""
     for anagrama_analizado in buscar_anagramas_archivo('./anagramas.txt'):
-        print(f'las palabras {anagrama_analizado[0]} y {anagrama_analizado[1]}', 'son angramas' if anagrama_analizado[-1] else 'NO son Anagramas')
+        print(f'las palabras [{anagrama_analizado[0]}] y [{anagrama_analizado[1]}]', 'son angramas' if anagrama_analizado[-1] else 'NO son Anagramas')
 
 if __name__ == "__main__":
     principal()
