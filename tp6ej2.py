@@ -50,7 +50,8 @@ def buscar_anagramas_archivo(ruta_archivo):
 
 def principal():
     """Toda la interacción con el usuario va acá"""
-    for anagrama_analizado in buscar_anagramas_archivo('./anagramas.txt'):
+    lista_anagramas_analizados = buscar_anagramas_archivo('./anagramas.txt')
+    for anagrama_analizado in lista_anagramas_analizados:
         print(f'las palabras [{anagrama_analizado[0]}] y [{anagrama_analizado[1]}]', 'son angramas' if anagrama_analizado[-1] else 'NO son Anagramas')
 
 if __name__ == "__main__":
