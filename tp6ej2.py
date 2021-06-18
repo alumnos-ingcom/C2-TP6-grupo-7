@@ -36,7 +36,7 @@ def anagrama(palabra1, palabra2):
     return palabra1_ordenada == palabra2_ordenada
 
 def buscar_anagramas_archivo(ruta_archivo):
-    with open(ruta_archivo, encoding='utf-8') as f:
+    with open(ruta_archivo, mode = 'r', encoding='utf-8') as f:
         anagramas = []
         for linea in f.readlines():
             palabras = separador_palabras(linea)
